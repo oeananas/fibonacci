@@ -2,25 +2,15 @@ import os
 from flask import Flask
 from flask_caching import Cache
 from dotenv import load_dotenv
-from config import configure_app
+from config import configure_app, get_cache_config
+import redis
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
 
 app = configure_app(Flask(__name__))
-
-if app.config['TESTING']:
-    cache_conf = {
-        'CACHE_TYPE': 'simple'
-    }
-else:
-    cache_conf = {
-        'CACHE_TYPE': 'redis',
-        'CACHE_REDIS_URL': 'redis://redis:6379/0'
-    }
-
-cache = Cache(app, config=cache_conf)
+cache = Cache(app, config=get_cache_config(app))
 
 from fib import controllers
 

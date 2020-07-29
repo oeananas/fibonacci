@@ -17,14 +17,6 @@ https://docs.docker.com/compose/install/
 By default, the project uses the "production" configuration.
 To use the "development" configuration, you need to create a .env file in project root dir with the CONFIGURATION = 'development' parameter.
 
-## Testing
-
-For tests launch you need to to create a .env file in project root dir with the CONFIGURATION = 'base' parameter.
-After that you can run tests:
-```bash
-pytest
-```
-
 All project configuration parameters are in config.py file.
 ```bash
 touch .env
