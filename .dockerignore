@@ -1,0 +1,19 @@
+.git
+Dockerfile
+.DS_Store
+.gitignore
+.dockerignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*$py.class
+
+
+# Unit test / coverage reports
+
+.coverage
+
+
+# Environments
+.env
+
