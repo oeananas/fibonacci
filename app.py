@@ -3,7 +3,6 @@ from flask import Flask
 from flask_caching import Cache
 from dotenv import load_dotenv
 from config import configure_app, get_cache_config
-import redis
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
