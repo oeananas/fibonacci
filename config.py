@@ -3,7 +3,7 @@ import redis
 
 
 class BaseConfig:
-    """ Base config class. This fields will use by production and development server """
+    """ Base config class. This fields will use by production and development server. """
     FLASK_APP = 'app.py'
 
 
@@ -22,7 +22,7 @@ config = {
 
 
 def configure_app(app):
-    """ Set app configuration. """
+    """ Setting app configuration. """
 
     config_name = os.environ.get('CONFIGURATION', 'production')
     app.config.from_object(config[config_name])
@@ -42,15 +42,13 @@ def is_redis_available():
 
 
 def get_cache_config(app):
-    """ Getting cache configuration. If redis is not available, use simple cache """
+    """ Getting cache configuration. If redis is not available, use simple cache type. """
 
     if not is_redis_available():
-        cache_conf = {
+        return {
             'CACHE_TYPE': 'simple'
         }
-    else:
-        cache_conf = {
-            'CACHE_TYPE': 'redis',
-            'CACHE_REDIS_URL': 'redis://redis:6379/0'
-        }
-    return cache_conf
+    return {
+        'CACHE_TYPE': 'redis',
+        'CACHE_REDIS_URL': 'redis://redis:6379/0'
+    }

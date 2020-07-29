@@ -27,7 +27,7 @@ echo "CONFIGURATION = 'development'" > .env
 
 ```bash
 docker-compose build
-docker-compoe run
+docker-compose up -d
 ```
 
 ## Usage

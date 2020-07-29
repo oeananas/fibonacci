@@ -15,6 +15,6 @@ args_map = {
 @app.route('/fibonacci', methods=['GET'])
 @use_args(args_map, location='query')
 def get_fibonacci(args):
-    """ Sending the fib sequence to user by JSON """
+    """ Sending the fib sequence to user by JSON. """
 
     return jsonify(sequence=get_fibonacci_range_sequence(args['from'], args['to']))
