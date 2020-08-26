@@ -3,7 +3,6 @@ version: '3.7'
 services:
     redis:
         image: redis
-        restart: always
     app:
         container_name: app
         build: .
@@ -17,7 +16,6 @@ services:
             - redis
     nginx:
         build: ./nginx
-        restart: always
         ports:
             - 80:80
         depends_on:
